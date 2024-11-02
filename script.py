@@ -1,7 +1,7 @@
 import os
 import sys
 from time import sleep
-from datetime import datetime, time
+from datetime import datetime
 from urllib.parse import urlparse
 
 
@@ -20,7 +20,7 @@ def exec():
     url = args[1]
     parsed = urlparse(url)
     os.system(f"mkdir {fecha}_{hora}")
-    cmd = os.system(f"yt-dlp {url} --hls-use-mpegts -k -o /"{fecha}_{hora}/%(title).180s.%(ext)s/"")
+    cmd = os.system(f"yt-dlp {url} --hls-use-mpegts -f 'bv,ba' -k -o \"{fecha}_{hora}/%(title).180s.%(ext)s\"")
 
     return cmd
   except:
